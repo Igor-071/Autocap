@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Handshake } from 'lucide-react'
+import { Handshake } from 'lucide-react'
 import { entrepreneursContent } from '@/content/entrepreneurs'
 import { TestimonialsSection } from '@/components/entrepreneurs/TestimonialsSection'
 
@@ -52,10 +52,9 @@ export default function EntrepreneursPage() {
           {/* CTA Button */}
           <Link
             href={landing.ctaLink}
-            className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
           >
             {landing.ctaText}
-            <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
 
           {/* Trust Indicator */}

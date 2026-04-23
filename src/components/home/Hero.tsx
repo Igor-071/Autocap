@@ -26,16 +26,26 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative flex h-screen min-h-[600px] items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={backgroundImage}
-          alt="Workshop background"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/Landing video.mp4" type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+          <Image
+            src={backgroundImage}
+            alt="Workshop background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </video>
         {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
@@ -68,10 +78,9 @@ export function Hero({
             </Link>
             <Link
               href={cta2Link}
-              className="group inline-flex items-center gap-3 rounded-xl border-2 border-white bg-white/10 px-10 py-5 text-lg font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-gray-900"
+              className="inline-flex items-center gap-3 rounded-xl border-2 border-white bg-white/10 px-10 py-5 text-lg font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-gray-900"
             >
               {cta2Text}
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </motion.div>
