@@ -19,7 +19,14 @@ export const COLORS = {
 
 export const NAVIGATION_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  {
+    label: 'About',
+    href: '/about',
+    submenu: [
+      { label: 'Company Overview', href: '/about' },
+      { label: 'Leadership & Board', href: '/about/team' },
+    ]
+  },
   { label: 'Our Portfolio', href: '/portfolio' },
   { label: 'Entrepreneurs', href: '/entrepreneurs' },
   { label: 'Investors', href: '/investors' },

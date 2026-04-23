@@ -3,16 +3,37 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { NAVIGATION_LINKS } from '@/lib/constants'
 import { usePathname } from 'next/navigation'
 
+type NavLink = {
+  label: string
+  href: string
+  submenu?: readonly { label: string; href: string }[]
+}
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
   const pathname = usePathname()
 
+  const toggleMobileSubmenu = (label: string) => {
+    setMobileSubmenuOpen(mobileSubmenuOpen === label ? null : label)
+  }
+
+  const isLinkActive = (link: NavLink) => {
+    if (link.submenu) {
+      // Check if any submenu item is active
+      return link.submenu.some(
+        (sublink) => pathname === sublink.href || pathname.startsWith(sublink.href + '/')
+      )
+    }
+    return pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'))
+  }
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -36,9 +57,7 @@ export function Header() {
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <span className="sr-only">
-                {mobileMenuOpen ? 'Close menu' : 'Open menu'}
-              </span>
+              <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />
               ) : (
@@ -50,15 +69,57 @@ export function Header() {
           {/* Desktop navigation */}
           <div className="hidden lg:flex lg:gap-x-8">
             {NAVIGATION_LINKS.map((link) => {
-              // Match exact path or any subpath (e.g., /entrepreneurs matches /entrepreneurs/why)
-              const isActive =
-                pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
+              const isActive = isLinkActive(link)
+
+              if (link.submenu) {
+                // Dropdown menu
+                return (
+                  <div key={link.href} className="group relative">
+                    <button
+                      className={`flex items-center gap-1 text-sm font-medium transition-all ${
+                        isActive
+                          ? 'text-[#C8102E] border-b-2 border-[#C8102E]'
+                          : 'text-gray-700 hover:text-[#C8102E]'
+                      }`}
+                    >
+                      {link.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                    {/* Dropdown content */}
+                    <div className="absolute left-0 top-full hidden pt-2 group-hover:block">
+                      <div className="w-56 rounded-lg bg-white py-2 shadow-lg ring-1 ring-gray-200">
+                        {link.submenu.map((sublink) => {
+                          // Use exact match for submenu items to avoid /about matching /about/team
+                          const isSubmenuActive = pathname === sublink.href
+                          return (
+                            <Link
+                              key={sublink.href}
+                              href={sublink.href}
+                              className={`block px-4 py-2 text-sm transition-colors ${
+                                isSubmenuActive
+                                  ? 'text-[#C8102E] font-semibold bg-gray-50'
+                                  : 'text-gray-700 hover:bg-gray-100'
+                              }`}
+                            >
+                              {sublink.label}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+
+              // Regular link
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-[#C8102E] ${
-                    isActive ? 'text-[#C8102E]' : 'text-gray-700'
+                  className={`text-sm font-medium transition-all ${
+                    isActive
+                      ? 'text-[#C8102E] border-b-2 border-[#C8102E]'
+                      : 'text-gray-700 hover:text-[#C8102E]'
                   }`}
                 >
                   {link.label}
@@ -73,15 +134,58 @@ export function Header() {
           <div className="lg:hidden">
             <div className="space-y-2 pb-6 pt-6">
               {NAVIGATION_LINKS.map((link) => {
-                // Match exact path or any subpath (e.g., /entrepreneurs matches /entrepreneurs/why)
-                const isActive =
-                  pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
+                const isActive = isLinkActive(link)
+
+                if (link.submenu) {
+                  // Mobile submenu
+                  return (
+                    <div key={link.href}>
+                      <button
+                        onClick={() => toggleMobileSubmenu(link.label)}
+                        className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-semibold transition-colors hover:bg-gray-50 ${
+                          isActive ? 'bg-gray-50 text-[#C8102E]' : 'text-gray-900'
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform ${
+                            mobileSubmenuOpen === link.label ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {mobileSubmenuOpen === link.label && (
+                        <div className="ml-4 mt-2 space-y-2">
+                          {link.submenu.map((sublink) => {
+                            // Use exact match for submenu items to avoid /about matching /about/team
+                            const isSubmenuActive = pathname === sublink.href
+                            return (
+                              <Link
+                                key={sublink.href}
+                                href={sublink.href}
+                                className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                                  isSubmenuActive
+                                    ? 'bg-gray-50 text-[#C8102E] font-semibold'
+                                    : 'text-gray-700 hover:bg-gray-100'
+                                }`}
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {sublink.label}
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )
+                }
+
+                // Regular mobile link
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={`block rounded-lg px-3 py-2 text-base font-semibold transition-colors hover:bg-gray-50 ${
-                      isActive ? 'text-[#C8102E] bg-gray-50' : 'text-gray-900'
+                      isActive ? 'bg-gray-50 text-[#C8102E]' : 'text-gray-900'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
