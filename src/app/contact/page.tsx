@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
-  const { hero, specializedCards, generalInquiry, companyInfo } = contactContent
+  const { hero, routing, specializedCards, generalInquiry, companyInfo } = contactContent
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -23,6 +23,13 @@ export default function ContactPage() {
           <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
             {hero.description}
           </p>
+        </div>
+      </section>
+
+      {/* Routing Section */}
+      <section className="px-6 pb-8 md:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-gray-600">{routing.text}</p>
         </div>
       </section>
 

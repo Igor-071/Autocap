@@ -4,8 +4,11 @@ describe('Contact Content', () => {
   it('has valid structure matching ContactContent interface', () => {
     expect(contactContent).toBeDefined()
     expect(contactContent.hero).toBeDefined()
-    expect(contactContent.hero.title).toBe('Get in Touch')
+    expect(contactContent.hero.title).toBe('Get in touch')
     expect(contactContent.hero.description).toBeDefined()
+
+    expect(contactContent.routing).toBeDefined()
+    expect(contactContent.routing.text).toBeDefined()
 
     expect(contactContent.specializedCards).toHaveLength(2)
 

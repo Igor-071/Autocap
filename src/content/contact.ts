@@ -21,6 +21,9 @@ export interface ContactContent {
     title: string
     description: string
   }
+  routing: {
+    text: string
+  }
   specializedCards: ContactCardData[]
   generalInquiry: {
     title: string
@@ -31,9 +34,12 @@ export interface ContactContent {
 
 export const contactContent: ContactContent = {
   hero: {
-    title: 'Get in Touch',
+    title: 'Get in touch',
     description:
-      "Whether you're an investor, a workshop owner, or have a general inquiry, we'd love to hear from you.",
+      "Whether you have a question, a proposal, or just want to learn more about what we're building - we're happy to hear from you.",
+  },
+  routing: {
+    text: 'For specific enquiries:',
   },
   specializedCards: [
     {
@@ -59,8 +65,8 @@ export const contactContent: ContactContent = {
       "Thank you for your message. We'll get back to you within 2 business days.",
   },
   companyInfo: {
-    email: 'hello@autocap.group',
-    address: 'Stockholm, Sweden',
-    businessHours: 'Monday - Friday, 9:00 - 17:00 CET',
+    email: 'kontakt@autocapgroup.se',
+    address: 'AutoCap Group Sweden AB · Nybrogatan 7 · Stockholm, Sweden',
+    businessHours: undefined,
   },
 }
