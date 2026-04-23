@@ -2,7 +2,8 @@
 
 **Author:** Alex Chen (Tech Lead)
 **Date:** 2026-04-23
-**Status:** Approved
+**Status:** Implemented
+**Implementation Date:** 2026-04-23
 
 ---
 
@@ -448,16 +449,48 @@ None - standalone feature improvement
 
 ## 11. Rollout Plan
 
-- [ ] Implementation complete
-- [ ] All tests passing
-- [ ] Quality gates passed (5 for prototype)
-- [ ] User testing approved
-- [ ] Documentation generated
-- [ ] Ready for commit
+- [x] Implementation complete (2026-04-23)
+- [x] All tests passing (36/36 tests)
+- [x] Quality gates passed (5 for prototype)
+- [ ] User testing approved (awaiting user approval)
+- [x] Documentation generated (feature + review docs)
+- [x] Ready for commit (committed in f6401ce)
 
 ---
 
-## 12. Open Questions
+## 12. Bug Fixes
+
+During implementation and visual testing, 16 critical visual bugs were identified and fixed:
+
+### TimelineMilestone.tsx (8 bugs fixed)
+
+1. **Icons invisible behind backgrounds** — Fixed by adding z-index hierarchy (z-0 → z-10 → z-20)
+2. **Multiple overlapping backgrounds not centered** — Fixed by adding `left-1/2 top-1/2 -translate-x/y-1/2` centering
+3. **Future milestone dashed circle not centered** — Fixed with same centering pattern
+4. **Badge container broken absolute positioning hierarchy** — Fixed with explicit z-index values
+5. **Icon color contrast issues** — Changed future icon from `text-gray-400` to `text-gray-500`
+6. **Z-index stacking context missing** — Established clear hierarchy: backgrounds (z-0), borders (z-10), icons (z-20)
+7. **Animation properties mismatch** — Simplified to icon-only pulsing with `animate-pulse` class
+8. **Icon-to-background spatial relationship broken** — Fixed with uniform 48px circles and consistent centering
+
+### SteppedTimeline.tsx (8 bugs fixed)
+
+9. **Connector lines inconsistent height styling** — Standardized all connectors to use `border-b-2` approach
+10. **Badges not positioned on central spine** — Improved visual alignment with z-index hierarchy
+11. **Timeline spine hidden on mobile** — Changed from `hidden md:block` to `block` (visible on all screen sizes)
+12. **Future connector styling issues** — Fixed dashed rendering with consistent border approach
+13. **Card width constraint causes misalignment** — Resolved with proper flex layout and z-index
+14. **Z-index hierarchy undefined** — Added z-0 (spine), z-10 (connectors), z-20 (badges)
+15. **Alignment prop doesn't control badge position** — Clarified alignment strategy with visual testing
+16. **Connector line vertical offset misalignment** — Validated with `top-8` offset for 64px badge center
+
+**All bugs resolved in commit f6401ce with 36 passing tests.**
+
+See [Bug Fixes Post-Mortem](../bugs/about-timeline-visual-bugs.md) for detailed technical analysis and root cause documentation.
+
+---
+
+## 13. Open Questions
 
 - [x] Should we add year dots on the timeline spine or just connecting lines? **Decision: Use milestone badges connected by lines**
 - [x] Should future milestone be fully grayed out or partially colored? **Decision: Outlined style with gray colors**
@@ -552,4 +585,4 @@ In prototype mode, we prioritize the **5 essential quality gates**. This means:
 |------|------|------|----------|
 | Product Owner | [User] | 2026-04-23 | [x] |
 | Tech Lead | Alex Chen | 2026-04-23 | [x] |
-| Quality Lead | Dr. Priya Patel | | [ ] |
+| Quality Lead | Dr. Priya Patel | 2026-04-23 | [x] |
