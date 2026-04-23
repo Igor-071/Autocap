@@ -89,7 +89,7 @@ export function WorkshopMap({ workshops }: WorkshopMapProps) {
           <div style="padding: 8px;">
             <h3 style="font-weight: 600; margin-bottom: 4px; color: #1C1C1E;">${workshop.name}</h3>
             <p style="color: #666; margin-bottom: 8px; font-size: 14px;">${workshop.city}, ${workshop.region}</p>
-            <a href="/portfolio/${workshop.slug}" style="color: #C8102E; font-weight: 500; font-size: 14px;">View details →</a>
+            <a href="/portfolio/${workshop.slug}" style="color: #C8102E; font-weight: 500; font-size: 14px;">View details</a>
           </div>
         `)
 

@@ -46,7 +46,7 @@ export const contactContent: ContactContent = {
       title: 'For Investors',
       description:
         'Interested in the AutoCap opportunity? Learn about our investment case and growth strategy.',
-      ctaText: 'Investor Relations →',
+      ctaText: 'Investor Relations ',
       ctaLink: '/investors/contact',
       bgColor: 'bg-[#D8E4DC]', // Investor green
     },
@@ -54,7 +54,7 @@ export const contactContent: ContactContent = {
       title: 'For Workshop Owners',
       description:
         "Thinking about the next chapter for your tire workshop? Let's have a confidential conversation.",
-      ctaText: 'Start a Conversation →',
+      ctaText: 'Start a Conversation ',
       ctaLink: '/entrepreneurs/contact',
       bgColor: 'bg-[#C9D8E8]', // Entrepreneur blue
     },

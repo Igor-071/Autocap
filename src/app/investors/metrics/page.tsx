@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, BarChart3 } from 'lucide-react'
+import { BarChart3 } from 'lucide-react'
 import { Breadcrumb } from '@/components/entrepreneurs/Breadcrumb'
 import { investorsContent } from '@/content/investors'
 import { MetricCard } from '@/components/investors/MetricCard'
@@ -80,10 +80,9 @@ export default function InvestorsMetricsPage() {
           {/* CTA */}
           <Link
             href="/investors/contact"
-            className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
           >
             Ready to discuss the opportunity? Contact us
-            <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </section>

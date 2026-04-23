@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, MapPin, Calendar, Building2, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ExternalLink, MapPin, Calendar, Building2 } from 'lucide-react'
 import { workshops, getWorkshopBySlug } from '@/content/workshops'
 
 interface WorkshopDetailPageProps {
@@ -160,10 +160,9 @@ export default async function WorkshopDetailPage({ params }: WorkshopDetailPageP
 
               <Link
                 href="/entrepreneurs"
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105"
               >
                 For Entrepreneurs
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

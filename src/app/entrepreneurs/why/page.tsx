@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 import { Breadcrumb } from '@/components/entrepreneurs/Breadcrumb'
 import { BenefitSection } from '@/components/entrepreneurs/BenefitSection'
 import { entrepreneursContent } from '@/content/entrepreneurs'
@@ -76,10 +76,9 @@ export default function WhyAutoCapPage() {
           {/* CTA */}
           <Link
             href="/entrepreneurs/contact"
-            className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-[#C8102E]/40 transition-all duration-300 hover:scale-105 hover:shadow-[#C8102E]/60"
+            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
           >
             Ready to explore? Start a confidential conversation
-            <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </section>

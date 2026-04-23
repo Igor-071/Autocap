@@ -43,7 +43,7 @@ export const entrepreneursContent: EntrepreneursContent = {
     headline: "You built something worth keeping. Let's build on it together.",
     subheadline:
       "If you own a tire service workshop and you're thinking about the next chapter — whether that's retirement, growth, or simply having a stronger partner - we'd like to have a conversation.",
-    ctaText: 'Learn why workshop owners choose AutoCap →',
+    ctaText: 'Learn why workshop owners choose AutoCap ',
     ctaLink: '/entrepreneurs/why',
   },
 
@@ -133,7 +133,7 @@ export const entrepreneursContent: EntrepreneursContent = {
       },
     ],
     totalTimeline: '8-12 weeks from first conversation to signed deal',
-    ctaText: 'Start with Step 1 → Have a confidential conversation with us',
+    ctaText: 'Start with Step 1  Have a confidential conversation with us',
     ctaLink: '/entrepreneurs/contact',
   },
 

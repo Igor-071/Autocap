@@ -12,9 +12,9 @@ export default function WorkshopNotFound() {
         </p>
         <Link
           href="/portfolio"
-          className="inline-block rounded-md bg-[#C8102E] px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#A00D24] transition-colors"
+          className="inline-block rounded-md bg-[#C8102E] px-8 py-3 text-base font-semibold text-white hover:bg-[#A00D24] transition-colors"
         >
-          View Portfolio →
+          View Portfolio
         </Link>
       </div>
     </div>

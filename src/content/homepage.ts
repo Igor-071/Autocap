@@ -39,9 +39,9 @@ export const homepageContent: HomepageContent = {
     headline: "The Nordic Tire Services Platform",
     subheadline: "We acquire, operate and grow independent tire service centres across Sweden — preserving the brands that customers trust and the entrepreneurs who built them.",
     backgroundImage: "/images/hero-workshop.jpg", // Placeholder - will need actual image
-    cta1Text: "For Entrepreneurs →",
+    cta1Text: "For Entrepreneurs",
     cta1Link: "/entrepreneurs",
-    cta2Text: "For Investors →",
+    cta2Text: "For Investors",
     cta2Link: "/investors",
   },
   kpis: [
@@ -73,7 +73,7 @@ export const homepageContent: HomepageContent = {
   footerCta: {
     headline: "Ready to start a conversation?",
     subtext: "Whether you're a workshop owner, an investor, or simply curious — we'd like to hear from you.",
-    ctaText: "Get in touch →",
+    ctaText: "Get in touch",
     ctaLink: "/contact",
   },
 }
@@ -90,21 +90,21 @@ export const audienceCards: AudienceCard[] = [
   {
     headline: "Thinking of selling your workshop?",
     description: "You built something valuable. We're here to help it grow - with your name still on the door.",
-    ctaText: "Learn more →",
+    ctaText: "Learn more ",
     ctaLink: "/entrepreneurs",
     backgroundColor: "#D8E4DC", // Birch
   },
   {
     headline: "A platform built for returns",
     description: "Fragmented market. Proven playbook. Founder-led execution. Explore the investment case.",
-    ctaText: "View investment case →",
+    ctaText: "View investment case ",
     ctaLink: "/investors",
     backgroundColor: "#C9D8E8", // Fjord
   },
   {
     headline: "12 workshops. One shared ambition.",
     description: "From Mölndal to Täby — meet the workshops that make up AutoCap Group.",
-    ctaText: "See our portfolio →",
+    ctaText: "See our portfolio ",
     ctaLink: "/portfolio",
     backgroundColor: "#E4E2DE", // Stone
   },

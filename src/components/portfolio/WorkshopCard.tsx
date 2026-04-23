@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { MapPin, Calendar, ArrowRight } from 'lucide-react'
+import { MapPin, Calendar } from 'lucide-react'
 import type { Workshop } from '@/content/workshops'
 
 interface WorkshopCardProps {
@@ -40,17 +40,12 @@ export function WorkshopCard({ workshop, index = 0 }: WorkshopCardProps) {
           </div>
 
           {/* Year Badge */}
-          <div className="mt-auto flex items-center justify-between">
+          <div className="mt-auto">
             <div className="inline-flex items-center gap-2 rounded-full bg-[#F5F0EB] px-4 py-2">
               <Calendar className="h-4 w-4 text-[#C8102E]" />
               <span className="text-sm font-semibold text-[#1C1C1E]">
                 Since {workshop.yearAcquired}
               </span>
-            </div>
-
-            {/* Arrow */}
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C8102E]/10 transition-all duration-300 group-hover:bg-[#C8102E]">
-              <ArrowRight className="h-5 w-5 text-[#C8102E] transition-colors group-hover:text-white" />
             </div>
           </div>
         </div>

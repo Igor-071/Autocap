@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Building2, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Building2, CheckCircle2 } from 'lucide-react'
 import { aboutContent } from '@/content/about'
 import { ValueCard } from '@/components/about/ValueCard'
 import { SteppedTimeline } from '@/components/about/SteppedTimeline'
@@ -179,10 +179,9 @@ export default function AboutPage() {
               <Link
                 key={index}
                 href={cta.href}
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-[#C8102E]/40 transition-all duration-300 hover:scale-105 hover:shadow-[#C8102E]/60 md:px-10 md:py-5 md:text-xl"
+                className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105 md:px-10 md:py-5 md:text-xl"
               >
                 {cta.label}
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 md:h-6 md:w-6" />
               </Link>
             ))}
           </div>
