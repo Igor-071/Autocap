@@ -1,10 +1,65 @@
+'use client'
+
+import { useState, useMemo } from 'react'
+import { Newspaper } from 'lucide-react'
+import { newsContent } from '@/content/news'
+import { NewsGrid } from '@/components/news/NewsGrid'
+import { CategoryFilter } from '@/components/news/CategoryFilter'
+import type { NewsArticle } from '@/content/news'
+
+type Category = 'All' | 'Company News' | 'Press Release' | 'Industry Insights' | 'Media Coverage'
+
 export default function NewsPage() {
+  const [selectedCategory, setSelectedCategory] = useState<Category>('All')
+
+  // Filter articles based on selected category
+  const filteredArticles = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return newsContent.articles
+    }
+    return newsContent.articles.filter(
+      (article: NewsArticle) => article.category === selectedCategory
+    )
+  }, [selectedCategory])
+
   return (
-    <div className="bg-white min-h-[60vh] flex items-center justify-center px-6">
-      <div className="text-center max-w-2xl">
-        <h1 className="text-4xl font-bold text-[#1C1C1E] mb-4">News & Media</h1>
-        <p className="text-lg text-gray-600">Coming soon</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-gray-50">
+
+      {/* Hero Section */}
+      <section className="relative flex min-h-[60vh] items-center justify-center px-6 py-24 md:px-8">
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Icon Badge */}
+          <div className="mb-8 inline-flex items-center justify-center">
+            <div className="rounded-2xl bg-white p-4 shadow-sm">
+              <Newspaper className="h-12 w-12 text-[#C8102E] md:h-16 md:w-16" strokeWidth={2} />
+            </div>
+          </div>
+
+          {/* Headline */}
+          <h1 className="mb-8 text-5xl font-black leading-[1.1] text-[#1C1C1E] md:text-6xl lg:text-7xl xl:text-8xl">
+            News & Media
+          </h1>
+
+          {/* Decorative Line */}
+          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+
+          {/* Subheadline */}
+          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
+            Company updates, industry insights, and press coverage
+          </p>
+
+          {/* Category Filter */}
+          <div className="mx-auto max-w-4xl">
+            <CategoryFilter
+              selectedCategory={selectedCategory}
+              onFilterChange={setSelectedCategory}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* News Grid Section */}
+      <NewsGrid articles={filteredArticles} />
+    </main>
   )
 }
