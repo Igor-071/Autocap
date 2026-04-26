@@ -33,10 +33,10 @@ export interface InvestorsContent {
 
 export const investorsContent: InvestorsContent = {
   landing: {
-    headline: 'A platform built for returns',
+    headline: 'A platform built for returns in a fragmented market',
     subheadline:
-      "AutoCap Group is consolidating Sweden's fragmented tire services market - preserving local brands while building operational scale. A proven playbook in an overlooked sector.",
-    ctaText: 'View the investment case ',
+      "AutoCap Group is consolidating Sweden's independent tire service industry - acquiring proven local businesses, applying operational discipline, and building a platform positioned for institutional partnership.",
+    ctaText: 'View the investment case',
     ctaLink: '/investors/why',
   },
   pillars: [

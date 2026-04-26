@@ -30,13 +30,7 @@ export const NAVIGATION_LINKS = [
   },
   { label: 'Our Portfolio', href: '/portfolio' },
   { label: 'Entrepreneurs', href: '/entrepreneurs' },
-  {
-    label: 'Investors',
-    href: '/investors',
-    submenu: [
-      { label: 'Investment Case', href: '/investors/case' },
-    ]
-  },
+  { label: 'Investors', href: '/investors' },
   { label: 'News & Media', href: '/news' },
   { label: 'Sustainability', href: '/sustainability' },
   { label: 'Contact', href: '/contact' },

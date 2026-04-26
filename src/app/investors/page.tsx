@@ -24,7 +24,7 @@ export default function InvestorsPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] items-center justify-center px-6 py-24 md:px-8">
+      <div className="relative flex min-h-[85vh] items-center justify-center px-6 py-24 md:px-8">
         <div className="mx-auto max-w-5xl text-center">
           {/* Icon Badge */}
           <div className="mb-8 inline-flex items-center justify-center">
@@ -46,21 +46,23 @@ export default function InvestorsPage() {
             {landing.subheadline}
           </p>
 
-          {/* CTA Button */}
-          <Link
-            href={landing.ctaLink}
-            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
-          >
-            {landing.ctaText}
-          </Link>
-
           {/* Trust Indicator */}
           <div className="mt-16 flex items-center justify-center gap-3 text-sm text-gray-600">
             <div className="h-2 w-2 rounded-full bg-green-500" />
             <span className="font-medium">Confidential · Professional · Institutional-grade</span>
           </div>
+
+          {/* CTA Button */}
+          <div className="mt-8">
+            <Link
+              href={landing.ctaLink}
+              className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
+            >
+              {landing.ctaText}
+            </Link>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
   )
 }
