@@ -8,7 +8,7 @@ export function LatestNewsStrip() {
     .slice(0, 3)
 
   return (
-    <section className="w-full bg-[#F0DADA] py-20 md:py-28">
+    <section className="w-full bg-gray-50 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Heading */}
         <div className="mb-12 text-center">
