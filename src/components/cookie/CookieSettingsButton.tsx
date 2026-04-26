@@ -1,13 +1,19 @@
 'use client'
 
-import { useCookieConsent } from '@/hooks/useCookieConsent'
+import { useCookieConsentContext } from './CookieConsentProvider'
 
 export function CookieSettingsButton() {
-  const { openPreferences } = useCookieConsent()
+  const context = useCookieConsentContext()
+
+  const handleClick = () => {
+    if (context) {
+      context.openPreferences()
+    }
+  }
 
   return (
     <button
-      onClick={openPreferences}
+      onClick={handleClick}
       className="text-left text-sm text-gray-400 transition-colors hover:text-white"
     >
       Cookie Settings

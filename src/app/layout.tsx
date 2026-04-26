@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/layout/BackToTop'
 import { CookieConsent } from '@/components/cookie/CookieConsent'
+import { CookieConsentProvider } from '@/components/cookie/CookieConsentProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <BackToTop />
-        <CookieConsent />
+        <CookieConsentProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <BackToTop />
+          <CookieConsent />
+        </CookieConsentProvider>
       </body>
     </html>
   )
