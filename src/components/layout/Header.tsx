@@ -72,7 +72,7 @@ export function Header() {
             {NAVIGATION_LINKS.map((link) => {
               const isActive = isLinkActive(link)
 
-              if (link.submenu) {
+              if ('submenu' in link && link.submenu) {
                 // Dropdown menu
                 return (
                   <div key={link.href} className="group relative">
@@ -140,7 +140,7 @@ export function Header() {
               {NAVIGATION_LINKS.map((link) => {
                 const isActive = isLinkActive(link)
 
-                if (link.submenu) {
+                if ('submenu' in link && link.submenu) {
                   // Mobile submenu
                   return (
                     <div key={link.href}>
