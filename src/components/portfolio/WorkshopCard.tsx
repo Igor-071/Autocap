@@ -1,9 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { MapPin, Calendar } from 'lucide-react'
 import type { Workshop } from '@/content/workshops'
+import { WorkshopImagePlaceholder } from './WorkshopImagePlaceholder'
 
 interface WorkshopCardProps {
   workshop: Workshop
@@ -20,12 +22,26 @@ export function WorkshopCard({ workshop, index = 0 }: WorkshopCardProps) {
     >
       <Link
         href={`/portfolio/${workshop.slug}`}
-        className="group relative block h-full overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#C8102E]/20 hover:shadow-xl"
+        className="group relative block h-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-[#C8102E]/20 hover:shadow-xl"
       >
+        {/* Image Section */}
+        <div className="relative aspect-video w-full overflow-hidden rounded-t-xl bg-[#F0DADA]">
+          {workshop.imageUrl ? (
+            <Image
+              src={workshop.imageUrl}
+              alt={workshop.name}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          ) : (
+            <WorkshopImagePlaceholder />
+          )}
+        </div>
+
         {/* Gradient overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#C8102E]/0 to-[#C8102E]/0 opacity-0 transition-opacity duration-300 group-hover:from-[#C8102E]/5 group-hover:to-transparent group-hover:opacity-100" />
 
-        <div className="relative flex h-full flex-col">
+        <div className="relative flex flex-col p-8">
           {/* Workshop Name */}
           <h3 className="mb-3 text-2xl font-bold text-[#1C1C1E] transition-colors group-hover:text-[#C8102E]">
             {workshop.name}

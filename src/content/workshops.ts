@@ -17,6 +17,7 @@ export interface Workshop {
   yearAcquired: number
   localWebsite: string
   description: string
+  imageUrl?: string
 }
 
 export const workshops: Workshop[] = [
