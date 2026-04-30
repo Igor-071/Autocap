@@ -9,9 +9,28 @@ interface LanguageSelectorProps {
 
 type Language = 'en' | 'sv'
 
+// Rectangular flag SVG components
+const UKFlag = () => (
+  <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="16" fill="#012169"/>
+    <path d="M0 0L24 16M24 0L0 16" stroke="white" strokeWidth="3"/>
+    <path d="M0 0L24 16M24 0L0 16" stroke="#C8102E" strokeWidth="2"/>
+    <path d="M12 0V16M0 8H24" stroke="white" strokeWidth="5"/>
+    <path d="M12 0V16M0 8H24" stroke="#C8102E" strokeWidth="3"/>
+  </svg>
+)
+
+const SwedishFlag = () => (
+  <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="16" fill="#006AA7"/>
+    <rect x="7" width="3" height="16" fill="#FECC00"/>
+    <rect y="6.5" width="24" height="3" fill="#FECC00"/>
+  </svg>
+)
+
 const languages = {
-  en: { flag: '🇬🇧', label: 'English' },
-  sv: { flag: '🇸🇪', label: 'Swedish' },
+  en: { flag: <UKFlag />, label: 'English' },
+  sv: { flag: <SwedishFlag />, label: 'Swedish' },
 } as const
 
 export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
@@ -63,7 +82,7 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
         aria-label={`Current language: ${languages[selectedLanguage].label}`}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="flex items-center gap-2 rounded px-3 py-2 text-2xl transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:ring-offset-2 cursor-pointer"
+        className="flex items-center gap-2 rounded px-3 py-2 transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:ring-offset-2 cursor-pointer"
       >
         <span aria-hidden="true">{languages[selectedLanguage].flag}</span>
         <ChevronDown
@@ -93,7 +112,7 @@ export function LanguageSelector({ className = '' }: LanguageSelectorProps) {
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
-              <span className="text-xl" aria-hidden="true">
+              <span aria-hidden="true">
                 {flag}
               </span>
               <span>{label}</span>
