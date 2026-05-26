@@ -11,35 +11,35 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-[#1C1C1E] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
+    <footer className="bg-[#1C1C1E] text-gray-300">
+      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-12">
         {/* Footer content */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4 lg:gap-8">
           {/* Company info */}
           <div className="md:col-span-1">
             <div className="mb-4">
               <Image
                 src="/logos/autocap-white.png"
                 alt="AutoCap Group"
-                width={160}
-                height={40}
-                className="h-10 w-auto"
+                width={128}
+                height={32}
+                className="h-8 w-auto"
               />
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs text-gray-400 leading-relaxed">
               {COMPANY_INFO.tagline}
             </p>
           </div>
 
           {/* Company links */}
           <div>
-            <h3 className="text-sm font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-medium mb-3 uppercase tracking-wide text-gray-300">Company</h3>
+            <ul className="space-y-2">
               {footerSections.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -50,13 +50,13 @@ export function Footer() {
 
           {/* For You links */}
           <div>
-            <h3 className="text-sm font-semibold mb-4">For You</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-medium mb-3 uppercase tracking-wide text-gray-300">For You</h3>
+            <ul className="space-y-2">
               {footerSections.forYou.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -67,13 +67,13 @@ export function Footer() {
 
           {/* Resources links */}
           <div>
-            <h3 className="text-sm font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-medium mb-3 uppercase tracking-wide text-gray-300">Resources</h3>
+            <ul className="space-y-2">
               {footerSections.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -95,8 +95,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <p className="text-sm text-gray-400 text-center md:text-left">
+        <div className="mt-8 border-t border-gray-700/40 pt-6">
+          <p className="text-xs text-gray-400 text-center md:text-left">
             {COMPANY_INFO.name} · {COMPANY_INFO.address} - {COMPANY_INFO.tagline}
           </p>
         </div>

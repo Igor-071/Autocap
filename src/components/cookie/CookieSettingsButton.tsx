@@ -14,7 +14,7 @@ export function CookieSettingsButton() {
   return (
     <button
       onClick={handleClick}
-      className="text-left text-sm text-gray-400 transition-colors hover:text-white"
+      className="text-left text-sm text-gray-400 transition-colors hover:text-gray-200"
     >
       Cookie Settings
     </button>
